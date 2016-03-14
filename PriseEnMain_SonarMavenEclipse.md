@@ -15,6 +15,8 @@ Pour réaliser, cette mission, rien de mieux qu'un projet simple doté de quelqu
 J'imagine que oui, puisque vous continuez à lire ces quelques lignes ...
 Alors, c'est parti, relevons ensemble LA mission du jour !
 
+**Attention : avant de commencer, vérifiez que vous disposez bien de la variable d'environnement `JAVA_HOME`** pointant vers la racine du dossier jdk contenant votre Java Development Kit, sinon jetez un petit coup d'oeil par [là](https://github.com/iblasquez/Back2Basics_Developpement)...
+
 
 ## Préparation du projet maven à analyser
 Commençons par créer notre **projet maven sous Eclipse** que nous appelerons`tennisKataRefactoring1`par exemple.  

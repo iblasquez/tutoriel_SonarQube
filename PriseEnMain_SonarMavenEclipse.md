@@ -75,7 +75,7 @@ Cette fois-ci, l'analyse se lance bien dans la console et nous pouvons consulter
 
 Cette analyse nous a fait ressortir 6 issues majeures et 10 issues mineures.
 
-![KataRefactoring1_SonarQubeIssues_Initial](KataRefactoring1_SonarQubeIssues_Initial.png)
+![KataRefactoring1_SonarQubeIssues_Initial](images/KataRefactoring1_SonarQubeIssues_Initial.png)
 
 Jeton un rapide coup d'oeil aux issues... Comme issues majeures, nous pouvons relever, entre autres :
 
@@ -112,7 +112,7 @@ Yes! Notre build est enfin `BUILD SUCCESS` !!!
 
 En cliquant, dans le package Explorer d'Eclipse, **sur la racine du projet**, il apparaît alors dans l'onglet `SonarQube Web Browser`, un **dashboard interactif contenant les données d'analyse du projet**.  
 
-![KataRefactoting1_DashBoard_Initial](KataRefactoting1_DashBoard_Initial.png)
+![KataRefactoting1_DashBoard_Initial](images/KataRefactoting1_DashBoard_Initial.png)
 
 Ce **dashboard** affiche des indicateurs pour chacun des *7 péchés capitaux du développeur* qui ne sont autre qu'une mauvaise distribution de la complexité, qu'une duplication de code, qu'un mauvais design, que l'existence de bugs potentiels, qu'une mauvaise couverture par les tests  unitaires, qu'un non-respect des standards de programmation et qu'une présence de pas ou de trop de commentaires.
 
@@ -125,7 +125,7 @@ En parallèle de cette exploration, il est pratique de jeter un petit coup d'oei
  
 En cliquant maintenant dans le package Explorer d'Eclipse **sur un fichier java quelconque du projet**, nous observons qu'apparaît alors dans l'onglet `SonarQube Web Browser` **le code de ce fichier accompagné d'icônes vertes et rouges** pour indiquer respectivement les issues mineures et majeures. En cliquant sur une icône, on obtient des informations supplémentaires sur l'issue qu'elle représente.
 
-![KataRefactoring1_SonarQube_WebBrowser_File](KataRefactoring1_SonarQube_WebBrowser_File.png)
+![KataRefactoring1_SonarQube_WebBrowser_File](images/KataRefactoring1_SonarQube_WebBrowser_File.png)
 
 
 Rappelons enfin qu'en utilisant, le *goal `Maven Sonar`*, les données sont poussées sur le serveur SonarQube. **Ce dashboard est donc désormais également disponible sur notre serveur SonarQube** (**[http://localhost:9000](http://localhost:9000)**). 

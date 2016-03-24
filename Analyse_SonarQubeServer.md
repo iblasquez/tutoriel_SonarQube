@@ -52,24 +52,44 @@ Yes! Notre build est enfin `BUILD SUCCESS` !!!
 
 Rendez-vous sur votre serveur Sonar Qube : [http://localhost:9000](http://localhost:9000) et sélectionnons notre projet  `tennisKataRefactoring1` qui apparaît désormais dans la liste des **PROJECTS**.
 
-Nous obtenons alors **un tableau de bord** interactif (plus communement **dashboard**) qui contient les données de l'analyse du projet.  
+### Une vision générale du projet  (dashboard)
+Nous obtenons alors **un tableau de bord** interactif (plus communement **dashboard**) qui affiche des indicateurs sur la **dette technique**, la **duplication de code** et la **structure du projet.** 
 
 ![KataRefactoting1_DashBoard_Initial](images/KataRefactoting1_DashBoard_SonarQube_New.png)
 
-Ce **dashboard** affiche des indicateurs sur la dette technique, la duplication de code et la structure du projet.
-
-En consultant la rubrique **Technical Debt**, on retrouve par exemple la liste des issues mineures et majeures. Consultons également les rubriques **Duplications**, **Structure**.
-
 
 *Remarque :*   
-Le but de l'analyse est de vous donner des indications sur les *7 péchés capitaux du développeur* qui ne sont autre qu'une mauvaise distribution de la complexité, qu'une duplication de code, qu'un mauvais design, que l'existence de bugs potentiels, qu'une mauvaise couverture par les tests  unitaires, qu'un non-respect des standards de programmation et qu'une présence de pas ou de trop de commentaires.  
-Si vous voulez en savoir plus sur ces *7 péchés capitaux du développeurs*, jetez  petit coup d'oeil sur [SONAR : Inspection continue : La chasse aux sept péchés capitaux peut commencer!](http://fr.slideshare.net/ElsassJUG/soire-qualit-logicielle-avec-sonar) ou 
+Le but d'une analyse SonarQube est de vous donner des indications sur les *7 péchés capitaux du développeur* qui ne sont autre qu'une mauvaise distribution de la complexité, qu'une duplication de code, qu'un mauvais design, que l'existence de bugs potentiels, qu'une mauvaise couverture par les tests  unitaires, qu'un non-respect des standards de programmation et qu'une présence de pas ou de trop de commentaires.    
+
+Si vous voulez en savoir plus sur ces *7 péchés capitaux du développeurs*, jetez  petit coup d'oeil  :  
+
+* sur la rubrique Developers' Seven Deadly Sins de la documentation SonarQube accessible [ici](http://docs.sonarqube.org/display/HOME/Developers'+Seven+Deadly+Sins)  
+* et/ou sur ces deux présentations : [SONAR : Inspection continue : La chasse aux sept péchés capitaux peut commencer!](http://fr.slideshare.net/ElsassJUG/soire-qualit-logicielle-avec-sonar) ou 
 [SONAR : La chasse aux 7 péchés du développeur](http://blog.netapsys.fr/sonar-la-chasse-aux-7-peches-du-developpeur-2/)
 
-Prenons maintenant le temps de nous familiariser avec ce tableau de bord : observons les données affichées et en découvrons clic après clic les différentes indicateurs (autres vues) proposés par SonarSource.
-En parallèle de cette exploration, il est pratique de jeter un petit coup d'oeil sur la partie [Visualisation des données de l'article *Contrôler la qualité de ses projets avec Sonar*](http://linsolas.developpez.com/articles/java/qualite/sonar/?page=page_5) pour disposer d'explications sur les fifférent(e)s indicateurs/vues proposé(e)s. 
 
-Pour une configuration plus complète d'une analyse SonarQube sur une projet Maven, veuillez consulter la documentation [ici](http://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner+for+Maven) 
+### Des indicateurs plus détaillés ...
+
+Prenons maintenant le temps de nous familiariser avec ce tableau de bord : observons les données affichées et en découvrons clic après clic les différentes indicateurs (autres vues : **Duplications** et **Structure**) proposées par SonarSource pour chacune des trois vues :  **Technical Debt**, **Duplications** et **Structure**
+
+Prenez maintenant le temps de nous familiariser avec ce tableau de bord : observons les données affichées et en découvrez clic après clic via **`More`** les différentes indicateurs proposés par SonarSource pour chacune des trois vues : **Technical Debt**, **Duplications** et **Structure**.
+
+Le [User Guide](http://docs.sonarqube.org/display/SONAR/User+Guide) permet d'en savoir plus sur les vues et les différents indicateurs:
+
+* pour **la dette technique** rendez-vous à la rubrique [**Technical Debt du User Guide**](http://docs.sonarqube.org/display/SONAR/Technical+Debt). Vous noterez que vous retrouvez dans le détail de cette vue, la liste des issues mineures et majeures fournies précédemment par [SonarLint](Analyse_SonarLintEclipse.md).   
+* pour **la duplication** rendez-vous à la rubrique [**Component duplications du User Guide**](http://docs.sonarqube.org/display/SONAR/Component+duplications) ainsi qu'à la rubrique [**Duplications du Developers' Seven Deadly Sins**](http://docs.sonarqube.org/display/HOME/Duplications).
+* pour **la structure** rendez-vous par exemple aux rubriques suivantes [**Bad Distribution of Complexity**](http://docs.sonarqube.org/display/HOME/Bad+Distribution+of+Complexity), [**Not Enough or Too Many Comments**](http://docs.sonarqube.org/display/HOME/Not+Enough+or+Too+Many+Comments).
+
+*Remarque :*  
+En parallèle de cette exploration, il peut être pratique, même s'il s'agit de l'ancienne interface proposée par SonarQube, de jeter un petit coup d'oeil sur la partie [Visualisation des données de l'article *Contrôler la qualité de ses projets avec Sonar*](http://linsolas.developpez.com/articles/java/qualite/sonar/?page=page_5) pour disposer d'explications sur les différent(e)s indicateurs/vues proposé(e)s.
+
+
+### Des règles pour analyser
+
+L'onglet **`Rules`** vous permet de gérer les règles utilisées lors de l'analyse du code de votre projet.    
+Cliquons sur cet onglet pour afficher la liste des règles.  
+La rubrique [**Rules**](http://docs.sonarqube.org/display/SONAR/Rules) de la documentation SonarQube vous en dira un peu plus sur ces règles...
+
 
 ## Et pour finir ...
 **Attention**, nous avons poussé le plus simplement possible l'analyse vers le serveur Sonar Qube, juste pour une découverte de l'outil.  
@@ -83,8 +103,7 @@ Sur un projet réel, il faudra [configurer Maven afin d'utiliser une *vraie base
 Vous trouverez la documentation relative à ce point dans la rubrique **Installing the Server** de la [documentation de SonarQube](http://docs.sonarqube.org/display/SONAR/Documentation) directement accessible depuis[ici](http://docs.sonarqube.org/display/SONAR/Installing+the+Server).
 
 
-## Bonus
-La rubrique [Project Administration de la documentation SonarQube](http://docs.sonarqube.org/display/SONAR/Project+Administration), vous donne toutes les indications nécessaires pour ajouter un nouveau projet sur votre serveur Sonar Qube.
+Il est à noter qu'un projet est automatiquement ajouté sur le serveur SonarQube lorsque sa première analyse est lancée. Toutefois, la rubrique [Project Administration de la documentation SonarQube](http://docs.sonarqube.org/display/SONAR/Project+Administration), vous donne toutes les indications nécessaires pour ajouter un nouveau projet sur votre serveur SonarQube, si nécessaire.
 
 
 

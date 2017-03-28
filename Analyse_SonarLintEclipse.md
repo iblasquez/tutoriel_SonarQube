@@ -63,20 +63,30 @@ Lancons une **analyse SonarLint sur votre fichier `TennisGame1.java`**.
 
 ## Analyse du code par SonatLint sous Eclipse
 
-L'analyse de code consignent ces résultats appelées **issues** (défauts) dans l'onglet **`SonarLint Issues`** . Elles les classent en issues majeures (annotées en rouge) et issues mineures (annotées en vert).
 
-### Listes des issues dans l'onglet `SonarLint Issue`
+<!-- Elles les classent en issues majeures (annotées en rouge) et issues mineures (annotées en vert). -->
 
-L'analyse sur le fichier `TennisGame1.java` pourrait par exemple donner :
+
+
+
+### Listes des issues dans l'onglet `Problems`
+
+Pour visualiser les issues de SonarLint, vous devez ouvrir la vue **Problems** à partir de `Window -> Show View -> Problems...`.
+Cliquer ensuite sur **Infos** pour afficher tous les items qui ne sont autre que les issues et relèvent des petits ou gros problèmes sur la qualité de votre code.
+
+Cliquer sur la première issue pour vous retrouver dans le fichier sur le code correspondant à cette issue.
+
+
+<!--L'analyse sur le fichier `TennisGame1.java` pourrait par exemple donner :
 
 ![Résultat de l'analyse SonarLint](images/SonarLint_Results_1.png)
 
-Cette analyse nous a fait ressortir 5 issues majeures (en rouge) et 8 issues mineures.
+Cette analyse nous a fait ressortir 5 issues majeures (en rouge) et 8 issues mineures. -->
 
 Jetons un rapide coup d'oeil aux issues... Comme issues majeures, nous pouvons relever, entre autres :
 
 - que les attributs privés `player1Name` et `player2Name` ne semblent pas être utilisés, 
-- que la méthode `getScore` a une [complexité cyclomatique](https://fr.wikipedia.org/wiki/Nombre_cyclomatique) un peu importante. La complexité cyclomatique permet [de calculer le niveau de complexité de l'algorithme d'une méthode et la difficulté à la tester exhaustivement. La complexité cyclomatique se mesure en comptant le nombre de boucles et de conditions dans le code, c'est-à-dire le nombre d'instruction "if", "while", "do", "for", "switch" et "case".](http://www.journaldunet.com/developpeur/expert/10545/une-qualimetrie-simple-au-service-des-developpeurs.shtml). Effectivement, en regardanr le code, on remarque bien, au premier coup d'oeil, que la méthode `public String getScore()` comporte un peu trop de `if` pour une compréhension rapide et efficace d'une lecture rapide du code... Par défaut, nous pouvons mêm remarquer que Sonar indique qu'il fixe la complexite cyclomatique à 10. Cette règle, comme toute autre règle, pourrait très bien être modifiée, par la suite, sur le serveur en fonction de nos besoins.
+- que la méthode `getScore` a une [complexité cyclomatique](https://fr.wikipedia.org/wiki/Nombre_cyclomatique) un peu importante. La complexité cyclomatique permet [de calculer le niveau de complexité de l'algorithme d'une méthode et la difficulté à la tester exhaustivement. La complexité cyclomatique se mesure en comptant le nombre de boucles et de conditions dans le code, c'est-à-dire le nombre d'instruction "if", "while", "do", "for", "switch" et "case".](http://www.journaldunet.com/developpeur/expert/10545/une-qualimetrie-simple-au-service-des-developpeurs.shtml). Effectivement, en regardant le code, on remarque bien, au premier coup d'oeil, que la méthode `public String getScore()` comporte un peu trop de `if` pour une compréhension rapide et efficace d'une lecture rapide du code... Par défaut, nous pouvons mêm remarquer que Sonar indique qu'il fixe la complexite cyclomatique à 10. Cette règle, comme toute autre règle, pourrait très bien être modifiée, par la suite, sur le serveur en fonction de nos besoins.
 
 
 ### En savoir plus sur une  issue via l'onglet `Sonar Lint Rule Description`

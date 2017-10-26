@@ -91,6 +91,89 @@ Cliquons sur cet onglet pour afficher la liste des règles.
 La rubrique [**Rules**](http://docs.sonarqube.org/display/SONAR/Rules) de la documentation SonarQube vous en dira un peu plus sur ces règles...
 
 
+## Visualiser la couverture sur le serveur SonarQube
+
+Pour poouvoir récupérer le pourcentage de couverture sur votre **dashboard**, il va falloir complèter le **`pom.xml`** du projet à analyser.
+
+Tout d'abord, le bloc **`properties`** devra contenir 3 propriétés suivantes :
+
+```XML  
+
+	<properties>
+		//... Proprerties déjà existantes
+		<sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
+  		<sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
+  		<sonar.language>java</sonar.language>
+	</properties>
+
+```
+
+bien sûr, il faut s'assurer qu'une dépendance à JUnit est bien présente dans le bloc **`dependencies`** :
+
+```XML  
+
+	<dependency>
+		<groupId>junit</groupId>
+		<artifactId>junit</artifactId>
+		<version>4.12</version>
+		<scope>test</scope>
+	</dependency>
+
+```
+
+Il ne reste plus qu'à configurer le plug-in de la manière suivante dans un bloc **`build`** :
+
+```XML  
+
+	<build>
+  		<plugins>
+    		<plugin>
+      			<groupId>org.apache.maven.plugins</groupId>
+      			<artifactId>maven-surefire-plugin</artifactId>
+      			<version>2.18.1</version>
+    		</plugin>
+    		<plugin>
+      			<groupId>org.jacoco</groupId>
+      			<artifactId>jacoco-maven-plugin</artifactId>
+      			<version>0.7.2.201409121644</version>
+      			<configuration>
+        			<append>true</append>
+      			</configuration>
+      			<executions>
+        			<execution>
+          				<goals>
+            				<goal>prepare-agent</goal>
+          				</goals>
+       	 			</execution>
+        			<execution>
+          				<id>post-unit-test</id>
+          				<phase>test</phase>
+          				<goals>
+            				<goal>report</goal>
+          				</goals>
+        			</execution>
+      			</executions>
+    		</plugin>
+  		</plugins>
+	</build>
+
+```
+
+Mettre à jour, votre `pom.xml`.  
+Faites un **`mvn clean test`** sous Eclipse, clic droit depuis votre projet puis **`Run as -> Maven clean`**  
+ 
+Relancer votre analyse sonar (`Run As -> Run Configurations … -> Maven Sonar`) et consulter votre nouveau dashboard.
+
+**Astuce :** Pour accèder rapidement à votre dashboard, jetez un petit coup d'oeil sur les logs de la console.  
+Lorsque le build s'est bien passé, vous avez entre autre une ligne indiquant **`ANALYSIS SUCCESSFUL`**.  
+La fin de cette ligne donne une url du genre :
+**`http://localhost:9000/dashboard/index/groupIdDeVotreProjet:artifactIdDeVotreProjet`**.
+Copiez la, et collez la directement dans la barre de votre navigateur, vous devriez vous retrouvez directement sur votre **dashboard** :smile:
+
+
+En savoir plus [Enabling code coverage : in Sonar, from Jenkins, with Maven, using Jacoco](https://www.unicoda.com/?p=1798)...
+
+
 ## Et pour finir ...
 **Attention**, nous avons poussé le plus simplement possible l'analyse vers le serveur Sonar Qube, juste pour une découverte de l'outil.  
 

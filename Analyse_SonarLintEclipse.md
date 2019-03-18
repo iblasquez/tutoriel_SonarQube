@@ -131,6 +131,11 @@ Il est ainsi possible de lancer une analyse SonarLint `SonarLint-> Analyze`, l'o
 La présentation du plug-in SonarLint pour Eclipse se trouve à l'adresse suivante : [www.sonarlint.org/eclipse/](http://www.sonarlint.org/eclipse/)    
 Un SonarLint User group est accessible [ici](https://groups.google.com/forum/#!forum/sonarlint).
 
+## Utiliser un Linter : une bonne pratique...
+Remarque : Installer un linter est une bonne pratique de programmation.
+Il existe des linters dans de nombreux langages.  
+Vous pouvez trouver une liste de linters [ici](https://promyze.com/wp-content/uploads/cartographie-de_23365438-5.png) sous forme d'infographie ou [là](https://promyze.com/blog-liste-linters-open-source-mise-jour-juillet-2018).
+
 
 ### Continuez le tutoriel par l'[Analyse d'un projet maven/Eclipse sur le serveur SonarQube](Analyse_SonarQubeServer.md)  
 
